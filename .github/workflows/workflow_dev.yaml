@@ -57,5 +57,5 @@ jobs:
           user_format_type: "csv"
       - name: Build dockerfile
         env:
-          VERSION: ${{steps.release.outputs.major}}.${{steps.release.outputs.minor}}.${{steps.release.outputs.patch}}
+          IMG: ${{ secrets.DOCKER_USERNAME }}/cronjob-operator:${{steps.release.outputs.major}}.${{steps.release.outputs.minor}}.${{steps.release.outputs.patch}}
         run: make docker-build docker-push
