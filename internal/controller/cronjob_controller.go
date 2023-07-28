@@ -149,7 +149,7 @@ func (r *CronJobReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ct
 	}
 
 	constructJobFromCronJob := func(cronJob *batchv1.CronJob, schdeduledTime time.Time) (*kbatch.Job, error) {
-		name := fmt.Sprintf("%s-%s", cronJob.Name, schdeduledTime.Unix())
+		name := fmt.Sprintf("%s-%v", cronJob.Name, schdeduledTime.Unix())
 		job := &kbatch.Job{
 			TypeMeta: metav1.TypeMeta{},
 			ObjectMeta: metav1.ObjectMeta{
