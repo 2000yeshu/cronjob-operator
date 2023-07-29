@@ -5,7 +5,7 @@ name: CronJob operator Docker Image CI for develop branch
 
 on:
   push:
-    branches: [main]
+    branches: [master]
 
 jobs:
   release:
